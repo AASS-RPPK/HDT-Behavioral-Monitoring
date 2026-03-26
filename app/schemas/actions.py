@@ -3,7 +3,7 @@ from __future__ import annotations
 from datetime import datetime
 from typing import Any
 
-from pydantic import BaseModel
+from pydantic import BaseModel, Field
 
 
 class ActionCreate(BaseModel):
@@ -27,7 +27,7 @@ class ActionResponse(BaseModel):
     action_type: str
     target: str | None = None
     page_url: str | None = None
-    metadata: dict[str, Any] | None = None
+    metadata: dict[str, Any] | None = Field(default=None, validation_alias="action_metadata")
     timestamp: datetime
     created_at: datetime
 

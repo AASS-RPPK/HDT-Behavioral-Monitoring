@@ -48,7 +48,7 @@ def create_action(db: Session, action: ActionCreate) -> UserAction:
         action_type=action.action_type,
         target=action.target,
         page_url=action.page_url,
-        metadata=action.metadata,
+        action_metadata=action.metadata,
         timestamp=action.timestamp,
     )
     db.add(row)
@@ -68,7 +68,7 @@ def create_actions_batch(db: Session, actions: list[ActionCreate]) -> list[UserA
             action_type=action.action_type,
             target=action.target,
             page_url=action.page_url,
-            metadata=action.metadata,
+            action_metadata=action.metadata,
             timestamp=action.timestamp,
         )
         db.add(row)

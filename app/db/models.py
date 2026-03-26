@@ -40,7 +40,7 @@ class UserAction(Base):
     page_url: Mapped[str | None] = mapped_column(Text, nullable=True)
 
     # Arbitrary payload: coordinates, element id, form data hash, viewport size, etc.
-    metadata: Mapped[dict[str, Any] | None] = mapped_column(JSONB, nullable=True)
+    action_metadata: Mapped[dict[str, Any] | None] = mapped_column("metadata", JSONB, nullable=True)
 
     # Client-reported timestamp (when the action actually happened in the browser).
     timestamp: Mapped[datetime] = mapped_column(
